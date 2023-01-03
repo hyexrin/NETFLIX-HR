@@ -20,9 +20,9 @@ function getMovieDetail(movie_id, pageNum) {
 
 
       const [
-        MovieDetailDatas,
-        MovieVideosDatas,
-        MovieReviewsDatas,
+        movieDetailDatas,
+        movieVideosDatas,
+        movieReviewsDatas,
       ] = await Promise.all([
         getMovieDetailApi,
         getMovieVideos,
@@ -32,9 +32,9 @@ function getMovieDetail(movie_id, pageNum) {
       dispatch({
         type: "GET_MOVIE_DETAIL_SUCCESS",
         payload: {
-          MovieDetailDatas: MovieDetailDatas,
-          MovieVideosDatas: MovieVideosDatas,
-          MovieReviewsDatas: MovieReviewsDatas,
+          movieDetailDatas: movieDetailDatas,
+          movieVideosDatas: movieVideosDatas,
+          movieReviewsDatas: movieReviewsDatas,
         },
       });
     } catch (error) {
