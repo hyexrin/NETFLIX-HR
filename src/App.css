@@ -1,6 +1,38 @@
+@font-face {
+  font-family: 'SBAggroB';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NEXEN_TIRE_Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/NEXEN_TIRE_Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  background-color: black !important;
-  color: rgb(231, 231, 231) !important
+  background-color: rgb(19, 19, 19) !important;
+  color: rgb(231, 231, 231) !important;
+  font-family: 'SBAggroB';
+}
+
+.fa-chevron-right{
+  margin-left: 4px; 
+  height: 25px;
+}
+
+.fa-film {
+  height: 40px;
+  color: rgba(255, 0, 0, 0.541);
 }
 
 /* 
@@ -55,4 +87,236 @@ Navigation
 .nav a:focus {
   color: rgb(255, 255, 255);
   font-weight: bold;
+}
+
+/* 
+=====================
+Home
+=====================
+*/
+
+
+.home-movies {
+  z-index: -1;
+}
+
+.home h1 {
+  font-size: 35px;
+  margin: 20px 20px;
+}
+
+.title-sign {
+  color: red
+}
+
+/* 
+=====================
+Banner
+=====================
+*/
+.banner {
+  height: 600px;
+  display: flex;
+  align-items: center;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.banner::before {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  content: '';
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.884), transparent)
+}
+
+.banner-info {
+  width: 40%;
+  margin-left: 30px;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 400px;
+  }
+
+  .banner::before {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    content: '';
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.884), transparent)
+  }
+  
+}
+
+/* 
+=====================
+Movie Card
+=====================
+*/
+
+.movie-card {
+  z-index: 10;
+  position: relative;
+  width: 220px;
+  height: 310px;
+  background-size: cover;
+  border-radius: 10px;
+  transform-origin: middle;
+  transition: 0.3s;
+  margin: 5% 0;
+}
+
+.movie-card:hover {
+  transform: scale(1.1);
+}
+
+.movie-card h1 {
+  width: 80%;
+  font-size: large;
+  padding: 0;
+}
+
+.movie-card-badges {
+  margin-left: 2px;
+  margin-bottom: 20px;
+}
+
+.movie-card-badges .badge {
+  margin-bottom: 10px;
+}
+
+.movie-card-overlay {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  /* margin: 0;
+  padding: 0; */
+}
+
+.movie-card-overlay:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.596);
+}
+
+.badge {
+  width: auto;
+  height: 1.5rem;
+  border-radius: 25px;
+  margin-right: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red !important;
+}
+
+.swiper{
+  position: relative;
+  z-index: 1000;
+}
+
+.swiper-slide {
+  margin: 0 0.2%;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgba(255, 0, 0, 0.555) !important;
+  font-weight: bolder;
+}
+
+/* 
+=====================
+Movie Detail
+=====================
+*/
+.detail-info {
+  width: 100%;
+  height: 400px;
+}
+
+.detail-card-box h4 {
+  font-family: 'Pretendard-Regular';
+  font-size: 15px;
+  line-height: 35px;
+}
+
+.detail-card-box {
+  margin: 0;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.detail-card {
+  border: 1px solid rgba(255, 0, 0, 0.247);
+  box-shadow: 8px 8px 25px 1px rgba(255, 0, 0, 0.247);
+  border-radius: 15px;
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  /* justify-content: center; */
+}
+
+.detail-card .badge {
+  display: inline;
+}
+
+.detail-title {
+  font-size: 35px;
+  margin: 20px 20px;
+}
+
+.voteAvarage-span, .voteCount-span {
+  background-color: rgb(255, 187, 0);
+  color:rgb(19, 19, 19);
+  padding: 6px 8px;
+  border-radius: 25px;
+}
+
+.adult, .all {
+  font-family: 'NEXEN_TIRE_Bold';
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+.adult {
+  background-color: rgb(171, 46, 46);
+}
+.all {
+  background-color: rgb(20, 126, 54);
+}
+
+@media screen and (max-width: 768px) {
+  .detail-info {
+    width: 100%;
+    height: 650px;
+  }
+
+  .detail-card-box {
+    margin: 0;
+    width: 100%;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .detail-card {
+    border-radius: 15px;
+    width: 90%;
+    height: 40%;
+  }
 }

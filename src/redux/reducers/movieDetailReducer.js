@@ -1,7 +1,6 @@
 let initialState = {
   movieDetailDatas: {},
   movieVideosDatas: {},
-  bannerMovieVideos: {},
   movieReviewsDatas: {},
   loading: true,
 };
@@ -16,10 +15,9 @@ function movieDetailReducer(state = initialState, action) {
     case "GET_MOVIE_DETAIL_SUCCESS":
       return {
         ...state,
-        movieDetailDatas: payload.movieDetailJson.data,
-        movieVideosDatas: payload.movieVideos,
-        bannerMovieVideos: payload.bannerMovieVideos,
-        movieReviewsDatas: payload.movieReviews,
+        movieDetailDatas: payload.movieDetailDatas.data,
+        movieVideosDatas: payload.movieVideosDatas,
+        movieReviewsDatas: payload.movieReviewsDatas,
         loading: false,
       };
 
@@ -28,7 +26,6 @@ function movieDetailReducer(state = initialState, action) {
         ...state,
         movieDetailDatas: {},
         movieVideosDatas: {},
-        bannerMovieVideos: {},
         loading: true,
       };
 
