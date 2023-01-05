@@ -128,37 +128,37 @@ const MoviesDetail = () => {
       </div>
 
       {recommendMoviesDatas.data.total_results !== 0
-      ? (
-      <div className='detail-video'>
-        <h1 className='detail-title'>
-          <span>RECOMMENDED MOVIES</span>
-          <span className="title-sign"><FontAwesomeIcon icon={faChevronRight} /></span>
-        </h1>
+        ? (
+          <div className='detail-video'>
+            <h1 className='detail-title'>
+              <span>RECOMMENDED MOVIES</span>
+              <span className="title-sign"><FontAwesomeIcon icon={faChevronRight} /></span>
+            </h1>
 
-        <div className='video-card-box'>
-          <MovieSlide movies={recommendMoviesDatas.data} />
-        </div>
-      </div>)
-      : ''
-    }
+            <div className='video-card-box'>
+              <MovieSlide movies={recommendMoviesDatas.data} />
+            </div>
+          </div>)
+        : ''
+      }
 
 
 
       {movieReviewsDatas.total_results !== 0
-        ? (movieReviewsDatas.results.map(item => (
-          <div className='detail-review'>
-            <h1 className='detail-title'>
-              <span>REVIEWS {'('}{movieReviewsDatas.total_results}{')'}</span>
-              <span className="title-sign"><FontAwesomeIcon icon={faChevronRight} /></span>
-            </h1>
+        ? (<div className='detail-review'>
+          <h1 className='detail-title'>
+            <span>REVIEWS {'('}{movieReviewsDatas.total_results}{')'}</span>
+            <span className="title-sign"><FontAwesomeIcon icon={faChevronRight} /></span>
+          </h1>
 
+          <div className='review-card-box'>
             <div className='review-card-box'>
-              <div className='review-card-box'>
+              {movieReviewsDatas.results.map(item => (
                 <ReviewCard data={item} key={item.id} />
-              </div>
+              ))}
             </div>
           </div>
-        )))
+        </div>)
         : ''}
 
 
