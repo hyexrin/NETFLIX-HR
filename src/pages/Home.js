@@ -5,8 +5,8 @@ import { movieDetailActions } from '../redux/actions/movieDetailActions';
 import Loading from '../components/Loading';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import Banner from '../components/Banner';
 import MovieSlide from '../components/MovieSlide';
+import HomeBanner from '../components/HomeBanner';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -16,29 +16,31 @@ const Home = () => {
         dispatch(movieActions.getMovies());
     }, []);
 
+    console.log(upcomingMoviesData);
     if (loading) {
         return <Loading />
     }
     return (
         <div className='home'>
             <div className='home-banner'>
-                <Banner movie={popularMoviesData.results[0]}/>
-            </div>
-                <h1>
-                    <span style={{marginBottom: '100px'}}>POPULAR MOVIES</span>
+                <HomeBanner movie={popularMoviesData.results[0]} />
+
+                <h2>
+                    <span style={{ marginBottom: '100px' }}>POPULAR MOVIES</span>
                     <span className="title-sign"><FontAwesomeIcon icon={faChevronRight} /></span>
-                </h1>
+                </h2>
                 <MovieSlide movies={popularMoviesData} />
-                <h1>
+                <h2>
                     <span>TOP RATED MOVIES</span>
                     <span className="title-sign"><FontAwesomeIcon icon={faChevronRight} /></span>
-                </h1>
+                </h2>
                 <MovieSlide movies={topRatedMoviesData} />
-                <h1 style={{position: 'relative', zIndex: '1'}}>
+                <h2 style={{ position: 'relative', zIndex: '1' }}>
                     <span>UPCOMING MOVIES</span>
                     <span className="title-sign"><FontAwesomeIcon icon={faChevronRight} /></span>
-                </h1>
+                </h2>
                 <MovieSlide movies={upcomingMoviesData} />
+            </div>
         </div>
 
 

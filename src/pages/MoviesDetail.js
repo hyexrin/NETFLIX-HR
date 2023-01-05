@@ -16,6 +16,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/lazy";
 import ReviewCard from '../components/ReviewCard';
+import MovieSlide from '../components/MovieSlide';
 
 
 const MoviesDetail = () => {
@@ -23,7 +24,7 @@ const MoviesDetail = () => {
   const dispatch = useDispatch();
   const movie_id = useParams().id;
 
-  const { movieDetailDatas, movieVideosDatas, movieReviewsDatas, creditDatas, loading } = useSelector(state => state.movieDetail)
+  const { movieDetailDatas, movieVideosDatas, recommendMoviesDatas, movieReviewsDatas, creditDatas, loading } = useSelector(state => state.movieDetail)
 
   useEffect(() => {
     dispatch(movieDetailActions.getMovieDetail(movie_id, 1));
@@ -37,14 +38,14 @@ const MoviesDetail = () => {
     };
   }, [movie_id]);
 
-  console.log(movieReviewsDatas);
-  
+  console.log(recommendMoviesDatas.data);
+
   return loading ? (
     <Loading />
   ) : (
     <div className='movies-detail'>
       <div className='detail-banner'>
-        <Banner movie={movieDetailDatas} />
+        <Banner movie={movieDetailDatas} video={movieVideosDatas} />
       </div>
 
       <div className='detail-info'>
@@ -124,28 +125,43 @@ const MoviesDetail = () => {
             ))}
           </Swiper>
         </div>
-        <div>
-
-        </div>
       </div>
 
-      <div className='detail-review'>
-
+      {recommendMoviesDatas.data.total_results !== 0
+      ? (
+      <div className='detail-video'>
         <h1 className='detail-title'>
-          <span>REVIEWS</span>
+          <span>RECOMMENDED MOVIES</span>
           <span className="title-sign"><FontAwesomeIcon icon={faChevronRight} /></span>
         </h1>
 
-        <div className='review-card-box'>
-          <div className='review-card-box'>
-            {movieReviewsDatas.results.map(item => (
-              <ReviewCard data={item} />
-            ))}
-            
-
-          </div>
+        <div className='video-card-box'>
+          <MovieSlide movies={recommendMoviesDatas.data} />
         </div>
-      </div>
+      </div>)
+      : ''
+    }
+
+
+
+      {movieReviewsDatas.total_results !== 0
+        ? (movieReviewsDatas.results.map(item => (
+          <div className='detail-review'>
+            <h1 className='detail-title'>
+              <span>REVIEWS {'('}{movieReviewsDatas.total_results}{')'}</span>
+              <span className="title-sign"><FontAwesomeIcon icon={faChevronRight} /></span>
+            </h1>
+
+            <div className='review-card-box'>
+              <div className='review-card-box'>
+                <ReviewCard data={item} key={item.id} />
+              </div>
+            </div>
+          </div>
+        )))
+        : ''}
+
+
     </div>
   )
 }

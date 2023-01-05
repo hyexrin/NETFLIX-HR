@@ -108,9 +108,9 @@ Home
   z-index: -1;
 }
 
-.home h1 {
-  font-size: 35px;
-  margin: 20px 20px;
+.home h2 {
+  font-size: 25px;
+  margin-left: 20px;
 }
 
 .title-sign {
@@ -151,6 +151,16 @@ Banner
     height: 400px;
   }
 
+  .banner-title {
+    font-size: 30px;
+  }
+
+  .banner-info {
+    width: 65%;
+    margin-left: 30px;
+    z-index: 1;
+  }
+
   .banner::before {
     position: absolute;
     left: 0;
@@ -167,6 +177,15 @@ Banner
 Movie Card
 =====================
 */
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.348);
+}
+
+.modal-body {
+  background-color: black;
+  padding: 0;
+}
 
 .movie-card {
   z-index: 10;
@@ -203,6 +222,8 @@ Movie Card
   opacity: 0;
   width: 100%;
   height: 100%;
+  border-radius: 10px;
+  padding: 10%;
   /* margin: 0;
   padding: 0; */
 }
@@ -238,6 +259,50 @@ Movie Card
   font-weight: bolder;
 }
 
+@media screen and (max-width: 968px) {
+  
+.movie-card {
+  width: 120px;
+  height: 210px;
+  transition: 0.3s;
+  margin: 5% 0;
+}
+
+.movie-card:hover {
+  transform: scale(1.1);
+}
+
+.movie-card h1 {
+  width: 80%;
+  font-size: large;
+  padding: 0;
+}
+
+.movie-card-badges {
+  margin-left: 2px;
+  margin-bottom: 20px;
+}
+
+.movie-card-badges .badge {
+  margin-bottom: 10px;
+}
+
+.movie-card-overlay {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding: 10%;
+  /* margin: 0;
+  padding: 0; */
+}
+
+.movie-card-overlay:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.596);
+}
+}
+
 /* 
 =====================
 Movie Detail
@@ -265,7 +330,7 @@ Movie Detail
 }
 
 .detail-card {
-  border: 1px solid rgba(255, 0, 0, 0.247);
+  /* border: 1px solid rgba(255, 0, 0, 0.247); */
   box-shadow: 8px 8px 25px 1px rgba(255, 0, 0, 0.247);
   border-radius: 15px;
   width: 35%;
@@ -315,6 +380,11 @@ Movie Detail
 }
 
 @media screen and (max-width: 768px) {
+  .detail-title {
+    font-size: 25px;
+    margin: 15px 20px;
+  }
+
   .detail-info {
     width: 100%;
     height: 740px;
@@ -323,7 +393,6 @@ Movie Detail
   .detail-card-box {
     /* margin: 0; */
     width: 100%;
-    /* height: 650px; */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -334,6 +403,7 @@ Movie Detail
   .detail-card {
     border-radius: 15px;
     width: 90%;
+    margin-bottom: 10px;
     /* height: 40%; */
   }
 }
@@ -385,6 +455,17 @@ Character Card
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.596);
 }
+
+/* 
+=====================
+Character Card
+=====================
+*/
+.detail-video {
+  width: 100%;
+  height: 100%;
+}
+
 
 /* 
 =====================
@@ -446,14 +527,14 @@ Review Card
 }
 
 .review-card {
-  border: 1px solid white;
+  /* border: 1px solid white; */
   font-family: 'Pretendard-Regular';
   width:27%;
   height: 250px;
   margin: 2% 3%;
   border-radius: 20px;
   padding: 1%;
-  box-shadow: 8px 8px 25px 0.2px rgba(236, 236, 236, 0.247);
+  box-shadow: 8px 8px 25px 3px rgba(161, 161, 161, 0.247);
 }
 
 .review-card-top {

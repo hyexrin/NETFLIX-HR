@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Badge, Col, Container, Row } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
+import { movieActions } from '../redux/actions/movieActions';
+import Loading from './Loading';
 
 const MovieCard = ({ item }) => {
     const navigate = useNavigate('');
+    const { movieGenres, loading } = useSelector(state => state.movie);
 
-    const { movieGenres } = useSelector(state => state.movie);
-  
-    return (
+    return loading ? <Loading />
+    : (
         <div
             className='movie-card'
             style={{

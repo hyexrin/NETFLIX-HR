@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Button, Modal } from 'react-bootstrap'
+import YouTube from 'react-youtube';
 
-const Banner = ({ movie }) => {
+const Banner = ({ movie, video }) => {
+    const [modalShow, setModalShow] = useState(false);
+    // console.log('@Q@#@$@Q#', video)
+    let trailer = video.data.results.find(item => item.name.includes("Trailer"))
+    let key = '';
+    if (trailer) {
+        key = trailer.key
+    } else {
+        key = video.data.results[0].key
+    }
     return (
         <div
             className="banner"
@@ -12,8 +23,35 @@ const Banner = ({ movie }) => {
             }}
         >
             <div className="banner-info">
-                <h1 style={{fontSize: '50px'}}>{movie.title}</h1>
+                <h1 className='banner-title'>{movie.title}</h1>
                 <p>{movie.tagline}</p>
+                <Button variant='danger' onClick={() => setModalShow(true)}>
+                    Watch Trailer</Button>
+
+                <Modal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                    // {...props}
+                    size="lg"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered
+                >
+                    <Modal.Body>
+                        <YouTube
+                            videoId={key}
+                            opts={{
+                                width: "100%",
+                                playerVars: {
+                                    autoplay: 1, //자동재생 O
+                                    rel: 0,
+                                    modestbranding: 1,
+                                },
+                            }}
+                            //이벤트 리스너 
+                            onEnd={(e) => { e.target.stopVideo(0); }}
+                        />
+                    </Modal.Body>
+                </Modal>
             </div>
         </div>
     )

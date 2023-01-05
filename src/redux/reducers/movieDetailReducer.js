@@ -1,6 +1,7 @@
 let initialState = {
   movieDetailDatas: {},
   movieVideosDatas: {},
+  recommendMoviesDatas: {},
   movieReviewsDatas: {},
   creditDatas: {},
   loading: true,
@@ -18,6 +19,7 @@ function movieDetailReducer(state = initialState, action) {
         ...state,
         movieDetailDatas: payload.movieDetailDatas.data,
         movieVideosDatas: payload.movieVideosDatas,
+        recommendMoviesDatas: payload.recommendMoviesDatas,
         movieReviewsDatas: payload.movieReviewsDatas.data,
         creditDatas: payload.creditDatas.data.cast,
         loading: false,
@@ -28,6 +30,7 @@ function movieDetailReducer(state = initialState, action) {
         ...state,
         movieDetailDatas: {},
         movieVideosDatas: {},
+        recommendMoviesDatas: {},
         movieReviewsDatas: {},
         loading: true,
       };

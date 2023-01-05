@@ -14,6 +14,11 @@ function getMovieDetail(movie_id, pageNum) {
         `/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`
       );
 
+      const getRecommendMoviesApi = api.get(
+        `/movie/${movie_id}/recommendations?api_key=${API_KEY}&language=en-US&page=${pageNum}&region=US`
+      );
+
+
       const getMovieReviewsApi = api.get(
         `/movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=${pageNum}`
       );
@@ -22,9 +27,10 @@ function getMovieDetail(movie_id, pageNum) {
         `/movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`
       );
 
-      const [ movieDetailDatas, movieVideosDatas, movieReviewsDatas, creditDatas] = await Promise.all([
+      const [ movieDetailDatas, movieVideosDatas, recommendMoviesDatas, movieReviewsDatas, creditDatas] = await Promise.all([
         getMovieDetailApi,
         getMovieVideosApi,
+        getRecommendMoviesApi,
         getMovieReviewsApi,
         getCreditsApi,
       ]);
@@ -34,6 +40,7 @@ function getMovieDetail(movie_id, pageNum) {
         payload: {
           movieDetailDatas: movieDetailDatas,
           movieVideosDatas: movieVideosDatas,
+          recommendMoviesDatas: recommendMoviesDatas,
           movieReviewsDatas: movieReviewsDatas,
           creditDatas: creditDatas,
         },
