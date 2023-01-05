@@ -10,23 +10,23 @@ function getMovieDetail(movie_id, pageNum) {
         `/movie/${movie_id}?api_key=${API_KEY}&language=en-US`
       );
 
-      const getMovieVideos = api.get(
+      const getMovieVideosApi = api.get(
         `/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`
       );
 
-      const getMovieReviews = api.get(
+      const getMovieReviewsApi = api.get(
         `/movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=${pageNum}`
       );
 
+      const getCreditsApi = api.get(
+        `/movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`
+      );
 
-      const [
-        movieDetailDatas,
-        movieVideosDatas,
-        movieReviewsDatas,
-      ] = await Promise.all([
+      const [ movieDetailDatas, movieVideosDatas, movieReviewsDatas, creditDatas] = await Promise.all([
         getMovieDetailApi,
-        getMovieVideos,
-        getMovieReviews,
+        getMovieVideosApi,
+        getMovieReviewsApi,
+        getCreditsApi,
       ]);
 
       dispatch({
@@ -35,6 +35,7 @@ function getMovieDetail(movie_id, pageNum) {
           movieDetailDatas: movieDetailDatas,
           movieVideosDatas: movieVideosDatas,
           movieReviewsDatas: movieReviewsDatas,
+          creditDatas: creditDatas,
         },
       });
     } catch (error) {
