@@ -17,10 +17,10 @@ const Home = () => {
     }, []);
 
     console.log(upcomingMoviesData);
-    if (loading) {
-        return <Loading />
-    }
-    return (
+    
+    return loading ? (
+        <Loading />
+      ) : (
         <div className='home'>
             <div className='home-banner'>
                 <HomeBanner movie={popularMoviesData.results[0]} />

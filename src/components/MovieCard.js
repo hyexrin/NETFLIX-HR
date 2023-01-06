@@ -15,7 +15,7 @@ const MovieCard = ({ item }) => {
             className='movie-card'
             style={{
                 backgroundImage: "url(" +
-                    `https://www.themoviedb.org/t/p/w220_and_h330_face${item.poster_path}` + ")",
+                    `https://www.themoviedb.org/t/p/w440_and_h660_face${item.poster_path}` + ")",
             }}
             onClick={() => navigate(`/movies/${item.id}`)}
         >

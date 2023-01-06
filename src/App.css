@@ -25,8 +25,8 @@ body {
   font-family: 'SBAggroB';
 }
 
-.fa-chevron-right{
-  margin-left: 4px; 
+.fa-chevron-right {
+  margin-left: 4px;
   height: 25px;
 }
 
@@ -72,8 +72,8 @@ Navigation
 
 @media screen and (max-width: 768px) {
   .nav-logo {
-  content: url(./img/netflix-s-logo.png);
-  width: 50px;
+    content: url(./img/netflix-s-logo.png);
+    width: 50px;
   }
 }
 
@@ -126,7 +126,7 @@ Banner
   height: 600px;
   display: flex;
   align-items: center;
-  background-size: cover; 
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -169,7 +169,7 @@ Banner
     content: '';
     background: linear-gradient(to right, rgba(0, 0, 0, 0.884), transparent)
   }
-  
+
 }
 
 /* 
@@ -245,7 +245,7 @@ Movie Card
   background-color: red !important;
 }
 
-.swiper{
+.swiper {
   position: relative;
   z-index: 1000;
 }
@@ -253,6 +253,7 @@ Movie Card
 .swiper-slide {
   margin: 0 0.2%;
 }
+
 .swiper-button-next,
 .swiper-button-prev {
   color: rgba(255, 0, 0, 0.555) !important;
@@ -260,47 +261,47 @@ Movie Card
 }
 
 @media screen and (max-width: 968px) {
-  
-.movie-card {
-  width: 120px;
-  height: 210px;
-  transition: 0.3s;
-  margin: 5% 0;
-}
 
-.movie-card:hover {
-  transform: scale(1.1);
-}
+  .movie-card {
+    width: 120px;
+    height: 210px;
+    transition: 0.3s;
+    margin: 5% 0;
+  }
 
-.movie-card h1 {
-  width: 80%;
-  font-size: large;
-  padding: 0;
-}
+  .movie-card:hover {
+    transform: scale(1.1);
+  }
 
-.movie-card-badges {
-  margin-left: 2px;
-  margin-bottom: 20px;
-}
+  .movie-card h1 {
+    width: 80%;
+    font-size: large;
+    padding: 0;
+  }
 
-.movie-card-badges .badge {
-  margin-bottom: 10px;
-}
+  .movie-card-badges {
+    margin-left: 2px;
+    margin-bottom: 20px;
+  }
 
-.movie-card-overlay {
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  padding: 10%;
-  /* margin: 0;
+  .movie-card-badges .badge {
+    margin-bottom: 10px;
+  }
+
+  .movie-card-overlay {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 10%;
+    /* margin: 0;
   padding: 0; */
-}
+  }
 
-.movie-card-overlay:hover {
-  opacity: 1;
-  background-color: rgba(0, 0, 0, 0.596);
-}
+  .movie-card-overlay:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.596);
+  }
 }
 
 /* 
@@ -350,7 +351,8 @@ Movie Detail
 .detail-card {
   transition: 0.3s;
 }
-.detail-card:hover{
+
+.detail-card:hover {
   transform: scale(1.02);
 }
 
@@ -359,22 +361,26 @@ Movie Detail
   margin: 20px 20px;
 }
 
-.voteAvarage-span, .voteCount-span {
+.voteAvarage-span,
+.voteCount-span {
   background-color: rgb(255, 187, 0);
-  color:rgb(19, 19, 19);
+  color: rgb(19, 19, 19);
   padding: 6px 8px;
   border-radius: 25px;
 }
 
-.adult, .all {
+.adult,
+.all {
   font-family: 'NEXEN_TIRE_Bold';
   font-size: 13px;
   padding: 6px 10px;
   border-radius: 10px;
 }
+
 .adult {
   background-color: rgb(171, 46, 46);
 }
+
 .all {
   background-color: rgb(20, 126, 54);
 }
@@ -428,7 +434,7 @@ Character Card
   height: 200px;
   border-radius: 10px;
   box-shadow: 8px 8px 25px 1px rgba(255, 0, 0, 0.247);
-  background-size: cover; 
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   transition: 0.3s;
@@ -439,7 +445,7 @@ Character Card
   transform: scale(1.02);
 }
 
-.character-overlay {  
+.character-overlay {
   opacity: 0;
   width: 100%;
   height: 100%;
@@ -481,9 +487,10 @@ Review Card
 .review-card-box {
   width: 100%;
   display: flex;
-  flex-flow : row wrap;
+  flex-flow: row wrap;
   flex: auto;
 }
+
 .review-card-top-wrap {
   width: 100%;
   display: flex;
@@ -517,7 +524,7 @@ Review Card
 
 .review-date {
   font-size: small;
-  color:rgb(139, 139, 139)
+  color: rgb(139, 139, 139)
 }
 
 .review-rating {
@@ -529,7 +536,7 @@ Review Card
 .review-card {
   /* border: 1px solid white; */
   font-family: 'Pretendard-Regular';
-  width:27%;
+  width: 27%;
   height: 250px;
   margin: 2% 3%;
   border-radius: 20px;
@@ -547,18 +554,21 @@ Review Card
 .review-content {
   height: 55%;
   overflow: auto;
-  word-break:break-all
+  word-break: break-all
 }
 
 .review-content::-webkit-scrollbar {
   width: 8px;
+  display: none;
 }
+
 .review-content::-webkit-scrollbar-thumb {
   background-color: rgba(229, 45, 45, 0.884);
   border-radius: 10px;
   background-clip: padding-box;
   border: 2px solid transparent;
 }
+
 .review-content::-webkit-scrollbar-track {
   background-color: rgb(99, 99, 99);
   border-radius: 10px;
@@ -577,9 +587,173 @@ Review Card
   .review-card {
     border: 1px solid white;
     font-family: 'Pretendard-Regular';
-    width:80%;
+    width: 80%;
     height: 250px;
     margin: 10% 3%;
     /* padding: 20px 80px; */
   }
+}
+
+/* 
+=====================
+Movies (Filter)
+=====================
+*/
+.movies-wrap {
+  /* background-color: white; */
+  width: 100%;
+  height: 100%;
+  padding-top: 70px;
+  display: flex;
+}
+
+.movies-filter {
+  position: fixed;
+  z-index: 10;
+  /* background-color: pink; */
+  width: 400px;
+  height: 100%;
+  margin-right: 30px;
+  padding: 30px;
+}
+
+.movies-list {
+  /* background-color: orange; */
+  position: relative;
+  left: 430px;
+  width: calc(100% - 430px);
+  height: 100%;
+  transition: 1s;
+}
+
+/* 
+=====================
+Movies Sort & Search
+=====================
+*/
+.movies-sort-filter {
+  /* background-color: green; */
+  width: 100%;
+  height: 200px;
+}
+
+.movies-sort-searchbox {
+  /* background-color: skyblue; */
+  height: 60px;
+  font-family: 'Pretendard-Regular';
+}
+
+.movies-sort-searchbox .form-control::placeholder {
+  color: white;
+}
+
+.movies-sort-searchbox .form-control {
+  background-color: rgb(171, 46, 46);
+  border-radius: 0;
+  transition: 0.5s;
+  border: none;
+  padding: 10px;
+  color: rgb(255, 255, 255) !important;
+}
+
+.movies-sort-searchbox .form-control:focus {
+  background-color: rgba(229, 45, 45, 0.884);
+  box-shadow: none;
+  transition: 0.5s;
+}
+
+.movies-sort-dropdown {
+  /* background-color: pink; */
+  width: 100%;
+  height: calc(100% - 60px);
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+
+.movies-sort-dropdown .dropdown-item {
+  font-family: 'Pretendard-Regular';
+  transition: 0.2s;
+}
+
+.movies-sort-dropdown .dropdown-item:active,
+.movies-sort-dropdown .dropdown-item:focus {
+  background-color: rgb(171, 46, 46);
+  transition: 0.2s;
+}
+
+/* 
+=====================
+Movies Filter Slider
+=====================
+*/
+.movies-sort-slider {
+  /* background-color: aquamarine; */
+  margin-bottom: 10px;
+}
+
+.movies-sort-gneres {
+  /* background-color: salmon; */
+  width: 100%;
+  height: 100%;
+
+}
+
+/* 
+=====================
+Filter Genres
+=====================
+*/
+
+@media screen and (max-width: 768px) {
+  .genres-select-box {
+    height: 10vh;
+  }
+}
+
+.genres-select-box {
+  font-family: 'Pretendard-Regular';
+  margin: 1px 2px;
+  height: 22vh;
+  overflow: scroll;
+}
+
+.genres-select-box::-webkit-scrollbar {
+  display: none;
+}
+
+.genre-item-box {
+  background-color: rgb(104, 19, 19);
+  width: calc(100% * 0.32);
+  height: 35px;
+  margin: 2px 2px;
+  padding: 0;
+  border-radius: 3px;
+}
+
+.genre-item {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+=====================
+Filtered Movies
+=====================
+*/
+.filtered-movies-card {
+  overflow: hidden;
+  margin: 20px;
+  max-width: 14vw !important;
+  aspect-ratio: 4 / 6;
+  margin: 10px;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  transition: 0.3s;
 }
