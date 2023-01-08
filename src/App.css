@@ -634,7 +634,7 @@ Movies Sort & Search
 .movies-sort-filter {
   /* background-color: green; */
   width: 100%;
-  height: 200px;
+  height: 180px;
 }
 
 .movies-sort-searchbox {
@@ -645,6 +645,12 @@ Movies Sort & Search
 
 .movies-sort-searchbox .form-control::placeholder {
   color: white;
+}
+
+.movies-sort-searchbox .form-control:focus::placeholder {
+  font-size: small;
+  transition: 0.2s;
+  transform: translate(0, -10px);
 }
 
 .movies-sort-searchbox .form-control {
@@ -665,11 +671,27 @@ Movies Sort & Search
 .movies-sort-dropdown {
   /* background-color: pink; */
   width: 100%;
-  height: calc(100% - 60px);
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
+  height: calc(100% - 80px);
+}
+
+#dropdown-basic-button {
+  background-color: transparent;
+  border: none;
+}
+
+.dropdown-menu.show.dropdown-menu-dark {
+  background-color: rgb(67, 67, 67);
+  width: 85%;
+}
+
+.dropdown-menu.show {
+  background-color: white;
+}
+
+.sort-p {
+  padding-left: 12px;
+  /* font-family: 'Pretendard-Regular'; */
+  font-size: 15px;
 }
 
 .movies-sort-dropdown .dropdown-item {
@@ -682,7 +704,6 @@ Movies Sort & Search
   background-color: rgb(171, 46, 46);
   transition: 0.2s;
 }
-
 /* 
 =====================
 Movies Filter Slider

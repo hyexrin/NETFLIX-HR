@@ -12,7 +12,7 @@ const MoviesGenreFilter = ({ genres }) => {
 					{genres &&
 						genres.data.genres.map((item) => (
 							<Col lg={4} key={item.id} className='genre-item-box'>
-								<p className='genre-item'>{item.name}</p>
+								<p className='genre-item' onClick={() => console.log(item.id)}>{item.name}</p>
 							</Col>
 						))}
 				</Row>

@@ -1,7 +1,21 @@
-import React from 'react'
-import { Button, Dropdown, Form, InputGroup } from 'react-bootstrap'
+import React, { useEffect, useRef, useState } from 'react'
+import { Button, ButtonGroup, Dropdown, DropdownButton, Form, InputGroup } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { movieFilterActions } from '../redux/actions/movieFilterActions';
 
 const MoviesFilter = () => {
+	const dispatch = useDispatch();
+	const { keyword, sortBy, pageNum } = useSelector(state => state.movieFilter);
+	const isMounted = useRef(false);
+
+	useEffect(() => {
+		if (isMounted.current) {
+			dispatch(movieFilterActions.getFilterMovies(keyword, sortBy, pageNum));
+		} else {
+			isMounted.current = true;
+		}
+	}, [keyword, sortBy, pageNum]);
+
 	return (
 		<div className='movies-sort-filter'>
 			<div className='movies-sort-searchbox'>
@@ -10,21 +24,35 @@ const MoviesFilter = () => {
 						placeholder="Movies Title"
 						aria-label="Recipient's username"
 						aria-describedby="basic-addon2"
+						onKeyPress={(event) => {
+							event.key === "Enter" &&
+								dispatch({
+									type: "STORE_SEARCH_KEYWORD_SUCCESS",
+									payload: event.target.value,
+								})
+						}}
 					/>
 				</InputGroup>
 			</div>
-			
+
 			<div className='movies-sort-dropdown'>
 				<Dropdown.Menu show
 					variant='dark'>
-					<Dropdown.Header>SORT</Dropdown.Header>
-					<Dropdown.Item eventKey="2">By Popularity{'(desc)'}</Dropdown.Item>
-					<Dropdown.Item eventKey="3">By Popularity{'(asc)'}</Dropdown.Item>
+					<DropdownButton id="dropdown-basic-button" title="SORT"
+						onSelect={(eventKey) => {
+							console.log(eventKey);
+							dispatch({type: "STORE_SORTBY_SUCCESS", payload: eventKey});
+							// dispatch({type: "GET_FILTERED_REQUEST"})
+						}}>
+						<Dropdown.Item eventKey="popularity.asc">By Popularity{'(asc)'}</Dropdown.Item>
+						<Dropdown.Item eventKey="popularity.desc">By Popularity{'(desc)'}</Dropdown.Item>
+					</DropdownButton>
+					<p className='sort-p'>{sortBy}</p>
 				</Dropdown.Menu>
 			</div>
 
 
-			
+
 		</div>
 	)
 }

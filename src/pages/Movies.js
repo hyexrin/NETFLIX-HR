@@ -13,7 +13,9 @@ const Movies = () => {
   
   useEffect(() => {
     dispatch(movieFilterActions.getFilterMovies());
+    // dispatch(movieFilterActions.getMoreMovies());
   }, []);
+
   return loading ? (
     <Loading />
   ) : (
