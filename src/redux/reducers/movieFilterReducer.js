@@ -1,23 +1,24 @@
 let initialState = {
 	filteredMoviesDatas: {},
-	genresDatas: {},
 	keyword: "",
+	releaseDateGte: "",
+	releaseDateLte: "",
+	genresDatas: {},
 	sortBy: "",
 	pageNum: "",
-	moreMoviesData: {},
-  loading: true,
+	loading: true,
 };
 
 function movieFilterReducer(state = initialState, action) {
-	const {type, payload} = action;
+	const { type, payload } = action;
 
-	switch(type) {
+	switch (type) {
 		case "GET_FILTERED_REQUEST":
-			return {...state};
+			return { ...state };
 
 		case "GET_FILTERED_SUCCESS":
 			return {
-				...state, 
+				...state,
 				filteredMoviesDatas: payload.filteredMoviesDatas,
 				genresDatas: payload.genresDatas,
 				loading: false,
@@ -32,26 +33,39 @@ function movieFilterReducer(state = initialState, action) {
 				keyword: payload,
 				sortBy: "",
 			}
-		
-		case "STORE_SORTBY_SUCCESS":
-			return {...state, sortBy: payload};
 
-		case "GET_MORE_MOVIES_REQUEST":
-			return {...state};
-
-		case "GET_MORE_MOVIES_SUCCESS":
+		case "STORE_DATE_SUCCESS":
 			return {
 				...state,
-				pageNum: payload.pageNum,
-				moreMoviesData: payload.moreMoviesData,
-				loading: false,
-			};
+				releaseDateGte: payload.releaseDateGte,
+				releaseDateLte: payload.releaseDateLte,
+			}
 
-		case "GET_MORE_MOVIES_FAILURE":
-			return alert(`"${payload.error.message}"`);
-		
+		case "STORE_SORTBY_SUCCESS":
+			return { ...state, sortBy: payload };
+
+		case "STORE_PAGENUM_SUCCESS":
+			return { ...state, pageNum: payload };
+
+		case "STORE_GENRES_SUCCESS":
+			return {
+				...state,
+				genresDatas: payload.genresDatas
+			}
+
+		case "RESET_FILTER_SUCCESS":
+			return {
+				...state,
+				keyword: "",
+				releaseDateGte: "",
+				releaseDateLte: "",
+				genresDatas: {},
+				sortBy: "",
+				pageNum: "",
+			}
+
 		default:
-			return {...state};
+			return { ...state };
 	}
 }
 

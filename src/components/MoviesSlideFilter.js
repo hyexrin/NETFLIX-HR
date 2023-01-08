@@ -1,10 +1,22 @@
 import { Slider } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { createTheme, ThemeProvider } from "@mui/material/styles"
+import { useDispatch, useSelector } from 'react-redux'
+import { movieFilterActions } from '../redux/actions/movieFilterActions'
 
-const MoviesSlideFilter = () => {
-	const min = 0;
-	const max = 10;
+const MoviesSlideFilter = ({title}) => {
+	const dispatch = useDispatch();
+	const { 
+		keyword,
+		releaseDateGte,
+		releaseDateLte,
+		withGenres,
+		sortBy,
+		pageNum,
+	 } = useSelector(state => state.movieFilter);
+
+	const min = 1980;
+	const max = 2023;
 	const [value, setValue] = useState([min, max])
 	let minDistance = 1;
 	
@@ -15,7 +27,7 @@ const MoviesSlideFilter = () => {
       setValue([value[0], Math.max(newValue[1], value[0] + minDistance)]);
     }
 	}
-
+	// console.log(value)
 	const valuetext = () => {
 		return `${value}`
 	}
@@ -31,16 +43,28 @@ const MoviesSlideFilter = () => {
     },
   });
 
+	useEffect(() => {
+		dispatch({
+			type: "STORE_DATE_SUCCESS",
+			payload: {
+				releaseDateGte: value[0],
+				releaseDateLte: value[1]
+			}
+		})
+		console.log(value)
+	}, [value])
+
+
 	return (
 		<ThemeProvider theme={theme}>
 			<div className='movies-sort-slider'>
-			<h4>YEAR</h4>
+			<h4>{title}</h4>
 			<p>{value[0]} - {value[1]}</p>
 			<Slider
-				getAriaLabel={() => 'Temperature range'}
+				getAriaLabel={() => 'Years range'}
 				value={value}
 				onChange={handleChange}
-				valueLabelDisplay="auto"
+				// valueLabelDisplay="auto"
 				getAriaValueText={valuetext}
 				color="primary"
 				min={min}

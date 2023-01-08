@@ -778,3 +778,72 @@ Filtered Movies
   background-size: cover;
   transition: 0.3s;
 }
+
+.filtered-movies-card-noPoster {
+  background-color: #222020;
+  overflow: hidden;
+  margin: 20px;
+  max-width: 14vw !important;
+  aspect-ratio: 4 / 6;
+  margin: 10px;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+ul.pagination li {
+  font-family: 'Pretendard-Regular';
+  width: 35px;
+  height: 35px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 6px;
+}
+
+ul.pagination li:first-child{
+  /* display: none; */
+}
+
+ul.pagination li:last-child{
+  /* display: none; */
+}
+
+ul.pagination li a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+ul.pagination li.active a {
+  color: white;
+  transition: 0.2s;
+}
+
+ul.pagination li.active {
+  background: linear-gradient(to bottom right, #200122, #6f0000);
+  transition: 0.2s;
+}
+
+ul.pagination li a.active {
+  color: rgba(255, 0, 0, 0.541);
+  transition: 0.2s;
+}
+
+.page-selection {
+  width: 48px;
+  height: 30px;
+  color: white;
+  transition: 0.2s;
+}

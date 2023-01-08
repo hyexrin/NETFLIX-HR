@@ -5,16 +5,18 @@ import { movieFilterActions } from '../redux/actions/movieFilterActions';
 
 const MoviesFilter = () => {
 	const dispatch = useDispatch();
-	const { keyword, sortBy, pageNum } = useSelector(state => state.movieFilter);
+	
 	const isMounted = useRef(false);
+	const { 
+		keyword,
+		releaseDateGte,
+		releaseDateLte,
+		withGenres,
+		sortBy,
+		pageNum,
+	 } = useSelector(state => state.movieFilter);
 
-	useEffect(() => {
-		if (isMounted.current) {
-			dispatch(movieFilterActions.getFilterMovies(keyword, sortBy, pageNum));
-		} else {
-			isMounted.current = true;
-		}
-	}, [keyword, sortBy, pageNum]);
+	
 
 	return (
 		<div className='movies-sort-filter'>

@@ -1,18 +1,24 @@
 import React, { useState } from 'react'
 import { Button, Modal } from 'react-bootstrap'
+import { useSelector } from 'react-redux';
 import YouTube from 'react-youtube';
+import Loading from './Loading';
 
 const Banner = ({ movie, video }) => {
     const [modalShow, setModalShow] = useState(false);
-    // console.log('@Q@#@$@Q#', video)
+    const {loading} = useSelector(state => state.movie)
+    
     let trailer = video.data.results.find(item => item.name.includes("Trailer"))
     let key = '';
     if (trailer) {
         key = trailer.key
-    } else {
-        key = video.data.results[0].key
+    } 
+    else {
+        key = ''
     }
-    return (
+    return loading ? (
+        <Loading />
+      ) : (
         <div
             className="banner"
             style={{
