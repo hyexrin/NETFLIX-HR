@@ -11,15 +11,11 @@ const FilteredMovies = () => {
 	const navigate = useNavigate('');
 	const dispatch = useDispatch();
 	const { filteredMoviesDatas, loading } = useSelector(state => state.movieFilter);
-	// const [pageNum, setPageNum] = useState(1);
-	const [movieData, setMovieData] = useState([]);
-	const isMounted = useRef(false);
 
 	const [pageNum, setPage] = useState(1);
 
 	const handlePageChange = (page) => {
 		setPage(page);
-		console.log(page)
 	};
 
 	useEffect(() => {
@@ -42,7 +38,7 @@ const FilteredMovies = () => {
 						<Col
 							key={item.id}
 							className='filtered-movies-card'
-							lg={2} md={3} sm={4}
+							lg={2} md={3} sm={6}
 							style={{
 								backgroundImage: 'url(' +
 									`https://www.themoviedb.org/t/p/w440_and_h660_face${item.poster_path}` + ')',
@@ -65,7 +61,7 @@ const FilteredMovies = () => {
 				itemsCountPerPage={20}
 				totalItemsCount={
 					filteredMoviesDatas.data.total_results < 1000 ?
-					filteredMoviesDatas.data.total_results : '3000'
+					filteredMoviesDatas.data.total_results : 3000
 				}
 				pageRangeDisplayed={5}
 				prevPageText={"‹"}

@@ -38,8 +38,6 @@ const MoviesDetail = () => {
     };
   }, [movie_id]);
 
-  console.log(recommendMoviesDatas.data);
-
   return loading ? (
     <Loading />
   ) : (

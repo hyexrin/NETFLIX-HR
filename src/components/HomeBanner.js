@@ -3,7 +3,6 @@ import { Button } from 'react-bootstrap'
 
 const HomeBanner = ({ movie, video }) => {
     const [modalShow, setModalShow] = useState(false);
-    console.log('@Q@#@$@Q#', video)
     return (
         <div
             className="banner"

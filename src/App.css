@@ -23,6 +23,7 @@ body {
   background-color: rgb(19, 19, 19) !important;
   color: rgb(231, 231, 231) !important;
   font-family: 'SBAggroB';
+  margin-bottom: 20px;
 }
 
 .fa-chevron-right {
@@ -260,11 +261,11 @@ Movie Card
   font-weight: bolder;
 }
 
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 768px) {
 
   .movie-card {
-    width: 120px;
-    height: 210px;
+    width: 110px;
+    height: 150px;
     transition: 0.3s;
     margin: 5% 0;
   }
@@ -398,6 +399,7 @@ Movie Detail
 
   .detail-card-box {
     /* margin: 0; */
+    /* background-color: aqua; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -462,6 +464,21 @@ Character Card
   background-color: rgba(0, 0, 0, 0.596);
 }
 
+@media screen and (max-width: 768px) {
+  .character-box {
+    width: 100px;
+    height: 150px;
+  }
+
+  .detail-characters {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    position: relative;
+    margin-top: 60px;
+    /* background-color: orange; */
+  }
+}
 /* 
 =====================
 Character Card
@@ -575,11 +592,8 @@ Review Card
   box-shadow: inset 0px 0px 5px rgb(196, 196, 196);
 }
 
-@media screen and (max-width: 992px) {
-  .detail-characters {
-    margin-top: 120px;
-  }
-
+@media screen and (max-width: 768px) {
+ 
   .review-card-box {
     justify-content: center;
   }
@@ -602,17 +616,17 @@ Movies (Filter)
 .movies-wrap {
   /* background-color: white; */
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   padding-top: 70px;
   display: flex;
 }
 
-.movies-filter {
+.movies-filter, .movies-filter-hidden {
   position: fixed;
   z-index: 10;
   /* background-color: pink; */
   width: 400px;
-  height: 100%;
+  /* height: 100%; */
   margin-right: 30px;
   padding: 30px;
 }
@@ -624,6 +638,107 @@ Movies (Filter)
   width: calc(100% - 430px);
   height: 100%;
   transition: 1s;
+}
+
+.filter-btn{
+  display: none;
+}
+
+@media screen and (max-width: 978px) {
+  .filter-btn {
+    position: fixed;
+    z-index: 100;
+    right: 30px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: rgb(121, 27, 27);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+  }
+
+  .filter-icon {
+    height: 30px;
+  }
+
+  .filter-btn-show {
+    position: fixed;
+    z-index: 100;
+    right: 30px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: rgb(121, 27, 27);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    background-color: rgb(49, 49, 49);
+    transform: rotate(-45deg);
+  }
+
+  .movies-filter-hidden {
+    display: none;
+    transition: 1s;
+  }
+  .movies-filter {
+    background-color: rgba(28, 20, 20, 0.727);
+    width: 100%;
+    height: 80%;
+    transition: 1s;
+  }
+
+  .movies-list {
+    /* background-color: orange; */
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+  }
+
+  .movies-list .row {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .filtered-movies-card {
+    overflow: hidden;
+    margin: 20px;
+    max-width: calc(100% * 0.4) !important;
+    aspect-ratio: 4 / 6;
+    margin: 10px;
+    border-radius: 10px;
+    background-position: center;
+    background-size: cover;
+    transition: 0.3s;
+  }
+  
+  .filtered-movies-card-noPoster {
+    background-color: #222020;
+    overflow: hidden;
+    margin: 20px;
+    max-width: calc(100% * 0.4) !important;
+    aspect-ratio: 4 / 6;
+    margin: 10px;
+    border-radius: 10px;
+    background-position: center;
+    background-size: cover;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .movies-sort-gneres .container {
+    padding: 0;
+  }
 }
 
 /* 
@@ -751,12 +866,28 @@ Filter Genres
   margin: 2px 2px;
   padding: 0;
   border-radius: 3px;
+  transition: 0.2s;
+}
+
+.genre-item-box:hover {
+  background-color: rgb(62, 6, 6);
+  transition: 0.2s;
+}
+
+.genre-item-select-box {
+  background-color: rgb(62, 6, 6);
+  width: calc(100% * 0.32);
+  height: 35px;
+  margin: 2px 2px;
+  padding: 0;
+  border-radius: 3px;
+  transition: 0.2s;
 }
 
 .genre-item {
   width: 100%;
   height: 100%;
-  font-size: 14px;
+  font-size: 13px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -770,7 +901,7 @@ Filtered Movies
 .filtered-movies-card {
   overflow: hidden;
   margin: 20px;
-  max-width: 14vw !important;
+  max-width: 14vw;
   aspect-ratio: 4 / 6;
   margin: 10px;
   border-radius: 10px;
@@ -783,7 +914,7 @@ Filtered Movies
   background-color: #222020;
   overflow: hidden;
   margin: 20px;
-  max-width: 14vw !important;
+  max-width: 14vw;
   aspect-ratio: 4 / 6;
   margin: 10px;
   border-radius: 10px;

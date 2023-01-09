@@ -15,8 +15,6 @@ function getFilterMovies(
     try {
       dispatch({ type: "GET_FILTERED_REQUEST" });
 
-      console.log("releaseDateLte", releaseDateLte)
-
       const getFilterMoviesApi = api.get(
         `/discover/movie?api_key=${API_KEY}&language=en-US&region=US${keyword ? `&with_text_query=${keyword}` : ""
         }${withGenres ? `&with_genres=${withGenres}` : ""

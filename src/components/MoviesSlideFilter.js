@@ -27,7 +27,6 @@ const MoviesSlideFilter = ({title}) => {
       setValue([value[0], Math.max(newValue[1], value[0] + minDistance)]);
     }
 	}
-	// console.log(value)
 	const valuetext = () => {
 		return `${value}`
 	}
@@ -51,7 +50,6 @@ const MoviesSlideFilter = ({title}) => {
 				releaseDateLte: value[1]
 			}
 		})
-		console.log(value)
 	}, [value])
 
 

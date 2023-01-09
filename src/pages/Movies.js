@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FilteredMovies from '../components/FilteredMovies'
@@ -7,10 +7,12 @@ import MoviesFilter from '../components/MoviesFilter'
 import MoviesGenreFilter from '../components/MoviesGenreFilter'
 import MoviesSlideFilter from '../components/MoviesSlideFilter'
 import { movieFilterActions } from '../redux/actions/movieFilterActions'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const Movies = () => {
   const dispatch = useDispatch();
-  // const {pageNum, genresDatas, loading} = useSelector(state => state.movieFilter);
+  const [show, setShow] = useState(false);
 
 	const isMounted = useRef(false);
 	const { 
@@ -36,7 +38,7 @@ const Movies = () => {
 		} else {
 			isMounted.current = true;
 		}
-	}, [keyword, sortBy, pageNum, releaseDateGte, releaseDateLte]);
+	}, [keyword, sortBy, pageNum, releaseDateGte, releaseDateLte, withGenres]);
   
   useEffect(() => {
     dispatch(movieFilterActions.getFilterMovies());
@@ -46,7 +48,10 @@ const Movies = () => {
     <Loading />
   ) : (
     <div className='movies-wrap'>
-      <div className='movies-filter'>
+      <div className={show ? 'filter-btn-show' : 'filter-btn'} onClick={() => {setShow(!show); console.log(show)}}>
+        <FontAwesomeIcon icon={faPlus} className='filter-icon'/>
+      </div>
+      <div className={show? 'movies-filter' : 'movies-filter-hidden'}>
         <MoviesFilter />
         <MoviesSlideFilter title={'YEAR'}/>
         <MoviesGenreFilter genres={genresDatas}/>

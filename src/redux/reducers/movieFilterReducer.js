@@ -4,6 +4,7 @@ let initialState = {
 	releaseDateGte: "",
 	releaseDateLte: "",
 	genresDatas: {},
+	withGenres: "",
 	sortBy: "",
 	pageNum: "",
 	loading: true,
@@ -50,7 +51,7 @@ function movieFilterReducer(state = initialState, action) {
 		case "STORE_GENRES_SUCCESS":
 			return {
 				...state,
-				genresDatas: payload.genresDatas
+				withGenres: payload
 			}
 
 		case "RESET_FILTER_SUCCESS":

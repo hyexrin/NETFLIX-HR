@@ -15,8 +15,6 @@ const Home = () => {
     useEffect(() => {
         dispatch(movieActions.getMovies());
     }, []);
-
-    console.log(upcomingMoviesData);
     
     return loading ? (
         <Loading />
