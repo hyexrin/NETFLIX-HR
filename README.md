@@ -1,1 +1,1 @@
-https://netflix-hyerin.netlify.app/movies
+https://netflix-hyerin.netlify.app
